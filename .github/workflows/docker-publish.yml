@@ -48,3 +48,6 @@ jobs:
         with:
           # List of metadata for an image
           labels: ${{ steps.meta.outputs.labels }}
+          # Push is a shorthand for --output=type=registry
+          push: true
+          
