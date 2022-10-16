@@ -50,4 +50,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           # Push is a shorthand for --output=type=registry
           push: true
+          # List of tags
+          tags: ${{ steps.meta.outputs.tags }}
+         
+          
           
