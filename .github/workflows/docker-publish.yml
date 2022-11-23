@@ -24,7 +24,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: stormshadowray/nextcloud-docker-smb:latest
+          tags: ${{ secrets.DOCKER_IMAGE_TAG }}
           
       - name: Clean up previous workflow runs
         uses: egmacke/action-cleanup-workflow-runs@v1.2
