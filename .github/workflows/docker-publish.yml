@@ -24,7 +24,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: latest
+          
       - name: Clean up previous workflow runs
         uses: egmacke/action-cleanup-workflow-runs@v1.2
         with:
