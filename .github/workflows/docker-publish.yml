@@ -25,3 +25,11 @@ jobs:
           context: .
           push: true
           tags: latest
+      - name: Clean up previous workflow runs
+        uses: egmacke/action-cleanup-workflow-runs@v1.2
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ github.token }}
+          workflow: ${{ github.workflow }}
+          retain: 3
+
