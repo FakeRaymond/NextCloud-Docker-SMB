@@ -11,26 +11,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
       
       - name: Log in to Docker Hub
-        uses: docker/login-action@v2.1.0
+        uses: docker/login-action@master
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@v3.2.0
+        uses: docker/build-push-action@master
         with:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_IMAGE_TAG }}
           
       - name: Clean up previous workflow runs
-        uses: egmacke/action-cleanup-workflow-runs@v1.2
+        uses: Mattraks/delete-workflow-runs@main
         with:
-          repository: ${{ github.repository }}
           token: ${{ github.token }}
-          workflow: ${{ github.workflow }}
-          retain: 3
+          repository: ${{ github.repository }}
+          retain_days: 30
+          keep_minimum_runs: 3
 
